@@ -13,7 +13,7 @@ Development host: elementary OS 8, Ubuntu 24.04 base, customized Pantheon sessio
 - GNOME extension JavaScript syntax; strict settings-schema compilation.
 - Built elementary Debian package, Ubuntu Debian package, and GNOME extension ZIP. elementary package uses Meson's installed plugin with build RPATH removed; dependencies generated using `dpkg-shlibdeps`.
 
-Build dependencies were downloaded and extracted into ignored `.deps/` because administrator access was unavailable. No system packages or panel configuration were changed.
+Build dependencies were downloaded and extracted into ignored `.deps/` because administrator access was unavailable. At initial validation no system packages or panel configuration were changed. Subsequently installed the elementary package on this host and linked it into the custom panel plugin directory; a live rescan registered `disk-watcher` in Wingpanel’s D-Bus action state without a logout or panel restart. Stock-session acceptance checks remain pending.
 
 ## Required before claiming stock compatibility
 

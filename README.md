@@ -24,7 +24,9 @@ python3 tools/package.py elementary
 sudo apt install ./dist/indicator-disk-watcher-elementary_0.1.0_amd64.deb
 ```
 
-Log out and back in to load the native Wingpanel plugin. This is distinct from a compatibility/tray plugin. No desktop restart is performed automatically. The package is built for the current architecture and linked Wingpanel runtime; build it on the target baseline for release.
+Wingpanel can discover new plugins during a session. After installation finishes, invoke `io.elementary.wingpanel` to request a rescan if the indicator has not appeared; this forwards to the running panel rather than logging you out. This is distinct from a compatibility/tray plugin. The package is built for the current architecture and linked Wingpanel runtime; build it on the target baseline for release.
+
+On this development host, the custom panel uses `/opt/gala-layer-shell/current/lib/wingpanel`, rather than the stock plugin directory. A symlink from that directory to the package's `/usr/lib/x86_64-linux-gnu/wingpanel/libdisk-watcher.so` was installed, and `/opt/gala-layer-shell/current/bin/io.elementary.wingpanel` requested a successful live rescan. A new custom panel release may need this symlink recreated. Stock installations do not need this host-specific adjustment.
 
 Upgrade by installing the newer `.deb`, then log out/in. Remove with `sudo apt remove indicator-disk-watcher-elementary`, followed by logout/login to unload it. User settings remain unless explicitly reset.
 

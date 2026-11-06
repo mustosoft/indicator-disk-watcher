@@ -20,7 +20,15 @@ namespace DiskWatcher {
         bool alive = true;
         public Indicator () {
             Object (code_name: "disk-watcher");
-            settings = new Settings ("io.github.indicator_disk_watcher");
+            // The panel may predate package installation and cache an old schema source.
+            // Open the installed schema directory afresh for live plugin loading.
+            try {
+                var source = new SettingsSchemaSource.from_directory (
+                    "/usr/share/glib-2.0/schemas", SettingsSchemaSource.get_default (), false);
+                var schema = source.lookup ("io.github.indicator_disk_watcher", true);
+                if (schema != null) settings = new Settings.full (schema, null, null);
+            } catch (Error e) { warning ("Loading settings schema: %s", e.message); }
+            if (settings == null) settings = new Settings ("io.github.indicator_disk_watcher");
             display = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
             display.pack_start (new Gtk.Image.from_icon_name ("drive-harddisk-symbolic", Gtk.IconSize.MENU), false, false);
             label = new Gtk.Label ("Loading…");
