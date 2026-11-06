@@ -1,0 +1,8 @@
+{
+  "uuid": "disk-watcher@indicator-disk-watcher.github.io",
+  "name": "Disk Watcher",
+  "description": "Available filesystem space in the panel, with configurable mounts and refresh interval.",
+  "shell-version": ["46"],
+  "settings-schema": "io.github.indicator_disk_watcher",
+  "version": 1
+}

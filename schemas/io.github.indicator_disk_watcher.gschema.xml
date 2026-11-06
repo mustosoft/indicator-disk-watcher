@@ -1,0 +1,6 @@
+<schemalist>
+  <schema id="io.github.indicator_disk_watcher" path="/io/github/indicator-disk-watcher/">
+    <key name="mounts" type="as"><default>['/']</default><summary>Ordered filesystem mount paths</summary></key>
+    <key name="refresh-seconds" type="i"><range min="1" max="3600"/><default>30</default><summary>Refresh interval in seconds</summary></key>
+  </schema>
+</schemalist>

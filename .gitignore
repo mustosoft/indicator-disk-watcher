@@ -1,0 +1,7 @@
+/build/
+/dist/
+/.deps/
+/gnome/schemas/
+*.deb
+
+/schemas/gschemas.compiled

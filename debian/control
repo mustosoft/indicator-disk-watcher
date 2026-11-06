@@ -1,0 +1,12 @@
+Source: indicator-disk-watcher
+Section: utils
+Priority: optional
+Maintainer: Disk Watcher contributors <maintainers@indicator-disk-watcher.invalid>
+Build-Depends: debhelper-compat (= 13), meson, valac, libwingpanel-dev (>= 8.0.0), libgtk-3-dev, libgee-0.8-dev
+Standards-Version: 4.6.2
+
+Package: indicator-disk-watcher-elementary
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, dconf-gsettings-backend | gsettings-backend
+Description: Available filesystem space in Wingpanel
+ Native panel indicator for elementary OS 8.

@@ -1,0 +1,7 @@
+project('indicator-disk-watcher', 'vala', 'c', version: '0.1.0', meson_version: '>=0.58')
+gnome = import('gnome')
+wingpanel = dependency('wingpanel', version: '>=8.0.0')
+math = meson.get_compiler('c').find_library('m')
+shared_module('disk-watcher', ['elementary/core.vala', 'elementary/indicator.vala'], dependencies: [wingpanel, dependency('gio-unix-2.0'), math], install: true, install_dir: wingpanel.get_variable(pkgconfig: 'indicatorsdir'))
+install_data('schemas/io.github.indicator_disk_watcher.gschema.xml', install_dir: get_option('datadir') / 'glib-2.0/schemas')
+gnome.post_install(glib_compile_schemas: true)
