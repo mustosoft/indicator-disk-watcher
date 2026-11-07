@@ -18,6 +18,7 @@ def run(*args):
 
 def extension(destination):
     destination.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(ROOT / 'LICENSE', destination / 'LICENSE')
     for name in ('metadata.json', 'extension.js', 'core.js'):
         shutil.copy2(ROOT / 'gnome' / name, destination / name)
     (destination / 'schemas').mkdir()
@@ -44,6 +45,10 @@ def package(kind, out):
             deps = next(line.split('=', 1)[1] for line in output.splitlines() if line.startswith('shlibs:Depends='))
             deps += ', dconf-gsettings-backend | gsettings-backend'
             arch = run('dpkg', '--print-architecture')
+        docs = stage / f'usr/share/doc/indicator-disk-watcher-{kind}'
+        docs.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / 'LICENSE', docs / 'LICENSE')
+        shutil.copy2(ROOT / 'debian/copyright', docs / 'copyright')
         debian = stage / 'DEBIAN'
         debian.mkdir()
         (debian / 'control').write_text(f'''Package: indicator-disk-watcher-{kind}

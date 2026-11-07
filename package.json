@@ -1,1 +1,8 @@
-{"private":true,"type":"module","scripts":{"test":"node --test tests/core.test.js"}}
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/core.test.js"
+  },
+  "license": "GPL-3.0-or-later"
+}
