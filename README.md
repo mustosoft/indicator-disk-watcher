@@ -68,7 +68,7 @@ gjs -m tests/gjs-smoke.js
 
 Node tests need no npm dependencies. The native smoke test requires the built plugin, GTK 3, Python GI, and a display, but installs nothing and uses memory-only settings. The GJS smoke test validates the real Unix mount API and asynchronous reads without requiring GNOME Shell. Shell UI behavior still needs a GNOME session.
 
-Both frontends use the same GSettings schema and formatting fixtures. There is no daemon or external disk-monitoring process. See [PLAN.md](PLAN.md) for requirements and [VALIDATION.md](VALIDATION.md) for tested coverage and release gates.
+Both frontends use the same GSettings schema and formatting fixtures. There is no daemon or external disk-monitoring process. See [VALIDATION.md](VALIDATION.md) for tested coverage and release gates.
 
 ## License
 
